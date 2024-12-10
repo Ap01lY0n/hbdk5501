@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <title>С днем рождения тебя, Курина5501</title>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <h1></h1>
+        <div id="questions">
+            <div class="question active" id="question1">
+                <p>Как ты себя чувствуешь?</p>
+                <input type="text" id="q1">
+                <button onclick="nextQuestion(1)">дальше</button>
+            </div>
+            <div class="question" id="question2">
+                <p>Как твое настроение?</p>
+                <input type="text" id="q2">
+                <button onclick="nextQuestion(2)">дальше</button>
+            </div>
+            <div class="question" id="question3">
+                <p>реди стеди го?</p>
+                <input type="text" id="q3">
+                <button onclick="finishQuiz()">ессс</button>
+            </div>
+        </div>
+        <div id="message" style="display: none;">
+            <h2>С днем варенья!</h2>
+            <p class="hb_message">Карина, сегодня у тебя день рождения, и я хочу(вживую, но могу тока так) тебя поздравить и пожелать тебе всего самого наилучшего, шоб в жизни было все хорошо, чтобы всегда была счастлива, и самое важное - чтобы все родные и близкие друзьяшки были всегда рядом! Желаю тебе чтобы ты никогда нивчем не нуждалась, и чтобы все чего ты пожелаешь - сбывалось. ещё хочу сказать одно: спасибо тебе огромное, что ты есть, ты очень хорошая девочка, и я очень сильно рад, что познакомился с тобой. до сих пор радуюсь как ребенок, когда вспоминаю как мы познакомились, и всьо шо было дальше. Карина, с днем варенья тебя, живи счастливо и отпразднуй его так, шоб навсегда запомнить(хотелось бы где-то с вами там потусить, но это я уже от темы отхожу). Люблю тебя, Карина<3 <br> Мир вам! </p>
+            <div id="photos">
+                <img src="image/1.jpg" alt="" class="photo" onclick="openModal('image/1.jpg', 'Эта вы у Каролины фильмец смотрели')">
+                <img src="image/2.jpg" alt="" class="photo" onclick="openModal('image/2.jpg', 'Эта когда ты сосиску в камеру показывала, я начал молить прощение(не помню под каким предлогом)')">
+                <img src="image/3.jpg" alt="" class="photo" onclick="openModal('image/3.jpg', 'Эта вы с Каролиной фоткаться ходили вечерком')">
+                <img src="image/4.jpg" alt="" class="photo" onclick="openModal('image/4.jpg', 'Эта ты макияж замутила красивый(а онлик нет:3)')">
+                <img src="image/5.jpg" alt="" class="photo" onclick="openModal('image/5.jpg', 'Эта ты начала глазеть на меня ни с того ни с сего')">
+                <img src="image/6.jpg" alt="" class="photo" onclick="openModal('image/6.jpg', 'А это просто от меня<3')">
+                <img src="image/7.jpg" alt="" class="photo" onclick="openModal('image/7.jpg', 'Эта косплей на серегу пирата был')">   
+                <img src="image/8.jpg" alt="" class="photo" onclick="openModal('image/8.jpg', 'Эта ты мне сделала в январе(до сих пор умиляюсь)')">
+                <img src="image/9.jpg" alt="" class="photo" onclick="openModal('image/9.jpg', 'Эта вы в 6 утра пошли фоткаться на речку')">
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="photo-modal">
+        <div class="modal-content">
+            <button class="modal-close" style="display: flex; justify-content: center;" onclick="closeModal()"><p style="margin-top: -7px;">x</p></button>
+            <img id="modal-image" src="">
+            <div class="modal-caption" id="modal-caption"></div>
+        </div>
+    </div>
+    <canvas id="confetti"></canvas>
+    <script src="script.js"></script>
+</body>
+</html>
