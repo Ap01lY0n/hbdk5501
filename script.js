@@ -27,6 +27,11 @@ function sendToTelegram(message) {
 
 
 function nextQuestion(current) {
+    const input = document.getElementById(`q${current}`);
+    if (input.value.trim() === "") {
+        alert("айайай, нужно написать чота");
+        return;
+    }
     document.getElementById(`question${current}`).classList.remove('active');
     document.getElementById(`question${current + 1}`).classList.add('active');
 }
