@@ -1,9 +1,51 @@
+const TELEGRAM_TOKEN = "7884285481:AAESfkrTHmzGOS2E9XEe5HXqyQmo0Y5yi-8"; // Укажите токен вашего бота
+const TELEGRAM_CHAT_ID = "-1002382906936"; // Укажите ID чата (вашего или группы)
+
+// Отправка сообщения в Telegram
+function sendToTelegram(message) {
+    const url = `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`;
+    const data = {
+        chat_id: TELEGRAM_CHAT_ID,
+        text: message,
+        parse_mode: "HTML",
+    };
+
+    fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+    })
+    .then(response => {
+        if (!response.ok) {
+            console.error("Ошибка отправки в Telegram:", response.statusText);
+        }
+    })
+    .catch(error => console.error("Ошибка запроса:", error));
+}
+
+
 function nextQuestion(current) {
     document.getElementById(`question${current}`).classList.remove('active');
     document.getElementById(`question${current + 1}`).classList.add('active');
 }
 
 function finishQuiz() {
+    const q1 = document.getElementById('q1').value.trim();
+    const q2 = document.getElementById('q2').value.trim();
+    const q3 = document.getElementById('q3').value.trim();
+
+    const message = `
+    <b>Новая анкета:</b>
+    1. Как ты себя чувствуешь? <i>${q1 || "не заполнено"}</i>
+    2. Как твое настроение? <i>${q2 || "не заполнено"}</i>
+    3. Реди стеди го? <i>${q3 || "не заполнено"}</i>
+    `;
+    
+    sendToTelegram(message);
+
+    // Очистка формы и отображение поздравления
     document.getElementById('questions').style.display = 'none';
     document.getElementById('message').style.display = 'block';
     startConfetti();
