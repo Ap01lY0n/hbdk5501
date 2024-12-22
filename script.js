@@ -126,3 +126,4 @@ function startConfetti() {
     }
     animate();
 }
+
